@@ -6,8 +6,8 @@ module.exports.retrieveAllStudents = async () => {
 };
 
 module.exports.addStudent = async (student) => {
-  const { lastname, firstname } = student;
-  const pupil = new Students({ lastname, firstname });
+  const { lastname, firstname, createdBy, updatedBy } = student;
+  const pupil = new Students({ lastname, firstname, createdBy, updatedBy });
   const newStudent = await pupil.save();
   return newStudent;
 };

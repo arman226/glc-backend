@@ -50,6 +50,12 @@ module.exports.updateStudent = async (req, res) => {
   if (req.body.firstname !== null) {
     res.student.firstname = req.body.firstname;
   }
+  if (req.body.createdBy !== null) {
+    res.student.createdBy = req.body.createdBy;
+  }
+  if (req.body.updatedBy !== null) {
+    res.student.updatedBy = req.body.updatedBy;
+  }
   try {
     const updatedStudent = res.student.save();
     res.status(200).json(updatedStudent);
