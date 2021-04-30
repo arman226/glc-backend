@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
-const userRouter = require("./users");
+const StudentRoute = require("./studentRoute");
+const AuthRoute = require('./authRoute')
 
 const app = express();
 const PORT = process.env.PORT;
@@ -9,7 +10,8 @@ const onServerStart = () => {
 };
 
 const setUpRoutes = () => {
-  app.use("/api/user", userRouter);
+  app.use('/glcDB/User', AuthRoute);
+  app.use('/glcDB/students', StudentRoute); 
 };
 
 module.exports.setUpServer = () => {
